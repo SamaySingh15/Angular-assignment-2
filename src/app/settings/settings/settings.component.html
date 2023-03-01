@@ -1,0 +1,24 @@
+<div class="login-container">
+    
+    <form action="" #authForm="ngForm">
+        <h1 class="form-header"> Admin Setting</h1>
+        <div class="setting-item">
+            <label for="edit">Allow users to edit</label>
+            <input type="checkbox" name="username" ngModel name="edit" required email>
+        </div>
+        <div class="setting-item">
+            <label for="product-create">Allow product creation</label>
+            <input type="checkbox" name="password" ngModel name="product-create" minlength="6">
+        </div>
+        <div class="setting-item">
+            <label for="product-create">Allow product search</label>
+            <input type="checkbox" name="password" ngModel name="product-create" minlength="6">
+        </div>
+        <div class="setting-item">
+            <label for="product-create">Allow multiple delete</label>
+            <input type="checkbox" name="password" ngModel name="product-create" minlength="6">
+        </div>
+        <button type="submit" class="submit-button" >Save</button>
+        <button type="reset" class="reset-button submit-button" >Reset</button>
+    </form>
+</div>

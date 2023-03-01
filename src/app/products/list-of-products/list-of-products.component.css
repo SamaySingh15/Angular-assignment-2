@@ -1,0 +1,48 @@
+.product-list{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.table-heading{
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+table ,th ,td{
+    border: 2px solid black;
+    padding: 5px;
+
+}
+th{
+    background: lightblue;
+}
+table{
+    background-color: white;
+    width: 95%;
+    
+}
+.desc ,.head, .subhead ,.tags{
+    width:200px;
+}
+.name ,.expire{
+    width: 100px;
+}
+button{
+    width: 60px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 15px;
+    padding: 5px;
+    height: 35px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: rgb(15, 174, 15);
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+}

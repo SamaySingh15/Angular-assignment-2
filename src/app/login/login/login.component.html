@@ -1,0 +1,12 @@
+<div class="login-container">
+        <div class="error-box" *ngIf="error"><h1>{{error}} !</h1></div>
+        <form action="" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+            <h1 class="form-header">Login Form</h1>
+            <label for="username">Username</label>
+            <input type="text" name="username" ngModel name="username" required email>
+            <label for="password">Password</label>
+            <input type="password" name="password" ngModel name="password" minlength="6">
+            <button type="submit" class="submit-button" [disabled]="!authForm.valid">{{isLoginMode?'Login':'SignUp'}}</button>
+            <!-- <button type="button" class="submit-button" (click)="onSwitchMode()">Switch to {{isLoginMode?'SignUp':'Login'}}</button> -->
+        </form>
+</div>

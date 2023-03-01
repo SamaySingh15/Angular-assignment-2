@@ -1,0 +1,18 @@
+<div class="detail-container" *ngIf="productDetails!=undefined">
+    <div class="product-card">
+		<div class="product-tumb">
+			<img src="https://picsum.photos/200/300" alt="">
+		</div>
+		<div class="product-details">
+			<span class="product-catagory">{{productDetails.name}}</span>
+			<h4><a href="">{{productDetails.heading}}</a></h4>
+            <h5>{{productDetails.subheading}}</h5>
+			<p>{{productDetails.description}}</p>
+			<div class="product-bottom-details">
+				<div class="product-price"><button type="button" (click)="onEdit()">Edit</button>
+                <button  (click)="deleteProduct(productDetails.id)">Remove</button>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>

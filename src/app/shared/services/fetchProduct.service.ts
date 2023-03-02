@@ -14,13 +14,16 @@ export class FetchProduct {
       const products = [];
       for (const key in res) {
         if (res.hasOwnProperty(key)) {
-          products.push({ ...res[key], id: key })
+          products.push({ ...res[key], id: key ,select:false })
         }
       }
       return products;
     }));
   }
 
+  createProduct(product: Product) {
+    return this.http.post<{ name: string }>('https://angular-assignment-2-25c2c-default-rtdb.firebaseio.com/products.json', product);
+  }
   getProduct(id: string) {
     return this.http.get<Product>('https://angular-assignment-2-25c2c-default-rtdb.firebaseio.com/products/' + id + '.json');
   }
@@ -29,8 +32,11 @@ export class FetchProduct {
     return this.http.put<Product>('https://angular-assignment-2-25c2c-default-rtdb.firebaseio.com/products/' + product.id + '.json', product);
   }
 
-  deleteProduct(id:string){
-    return this.http.delete('https://angular-assignment-2-25c2c-default-rtdb.firebaseio.com/products/'+id+'.json');
+  deleteProduct(id: string) {
+    return this.http.delete('https://angular-assignment-2-25c2c-default-rtdb.firebaseio.com/products/' + id + '.json');
   }
-}
+  deleteAllProducts(){
+    return this.http.delete('https://angular-assignment-2-25c2c-default-rtdb.firebaseio.com/products.json');
+  }
 
+}

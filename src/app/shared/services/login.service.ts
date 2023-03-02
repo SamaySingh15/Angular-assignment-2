@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, catchError, Subject, tap, throwError } from 'rxjs';
 import { User } from 'src/app/datatype';
 import { Router } from '@angular/router';
+import { UserServicesService } from './user-services.service';
 
 interface AuthResponseData {
   kind: string;
@@ -19,8 +20,9 @@ interface AuthResponseData {
 })
 export class LoginService {
   user = new BehaviorSubject<User>(null);
+  
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private userService :UserServicesService) { }
 
   /* signup(mail:string, pass:string){
     return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAQwnUJj5oNIyrtQH575EMIXEo40c6iNiw',

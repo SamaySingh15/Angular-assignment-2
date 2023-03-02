@@ -7,38 +7,45 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
 import { QuickCreateProductComponent } from './products/quick-create-product/quick-create-product.component';
 import { SettingsComponent } from './settings/settings/settings.component';
 import { ErrorComponent } from './shared/components/error/error.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
-    component:LoginComponent,
-    path:''
+    component: LoginComponent,
+    path: ''
   },
   {
-    component:CreateProductComponent,
-    path:'create-product'
+    component: CreateProductComponent,
+    path: 'create-product',
+    canActivate: [AuthGuard]
   },
   {
-    component:CreateProductComponent,
-    path:'create-product/:id'
+    component: CreateProductComponent,
+    path: 'create-product/:id'
+    , canActivate: [AuthGuard]
   },
   {
-    component:QuickCreateProductComponent,
-    path:'create-quick-product'
+    component: QuickCreateProductComponent,
+    path: 'create-quick-product',
+    canActivate: [AuthGuard]
   },
   {
-    component:SettingsComponent,
-    path:'admin-settings'
+    component: SettingsComponent,
+    path: 'admin-settings',
+    canActivate: [AuthGuard]
   },
   {
-    component:ListOfProductsComponent,
-    path:'list-of-products'
+    component: ListOfProductsComponent,
+    path: 'list-of-products',
+    canActivate: [AuthGuard]
   },
   {
-    component:ProductDetailsComponent,
-    path:'product-details/:id'
+    component: ProductDetailsComponent,
+    path: 'product-details/:id',
+    canActivate: [AuthGuard]
   },
   {
-    path:'**' , component:ErrorComponent
+    path: '**', component: ErrorComponent
   }
 ];
 

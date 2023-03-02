@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SettingsComponent } from './settings/settings/settings.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { ErrorComponent } from './shared/components/error/error.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ProductFilterPipe } from './shared/pipes/product-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { ErrorComponent } from './shared/components/error/error.component';
     LoginComponent,
     SettingsComponent,
     ProductDetailsComponent,
-    ErrorComponent
+    ErrorComponent,
+    ProductFilterPipe
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,ReactiveFormsModule
+    HttpClientModule,ReactiveFormsModule,Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

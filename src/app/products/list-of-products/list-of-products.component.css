@@ -46,3 +46,29 @@ button{
     border-radius: 5px;
 
 }
+.searchBars{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom:20px;
+}
+.searchBars >input ,span{
+    margin-left: 20px;
+}
+.searchBars>input{
+    border-radius: 3px;
+}
+.delete-options{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    justify-content: flex-start;
+}
+.delete-button{
+    width: 150px;
+    padding: 5px;
+    font-size: 12px;
+}

@@ -10,11 +10,12 @@ import { FetchProduct } from 'src/app/shared/services/fetchProduct.service';
 })
 export class ProductDetailsComponent implements OnInit {
   productDetails:Product;
+  pid:string;
   constructor(private route:ActivatedRoute ,private product: FetchProduct, private router:Router) { }
 
   ngOnInit(): void {
-    let productId = this.route.snapshot.paramMap.get('id');
-    this.product.getProduct(productId).subscribe((data)=>{
+    this.pid = this.route.snapshot.paramMap.get('id');
+    this.product.getProduct(this.pid).subscribe((data)=>{
       this.productDetails=data;
     });
 

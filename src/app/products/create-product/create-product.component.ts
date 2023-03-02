@@ -67,13 +67,15 @@ export class CreateProductComponent implements OnInit {
       });
       setTimeout(() => {
         this.productMessage = undefined;
-        this.router.navigate(['']);
+        this.router.navigate(['/list-of-products']);
       }, 3000);
     }
     else {
-      console.log("product create is being used");
-      this.http.post<{ name: string }>('https://angular-assignment-2-25c2c-default-rtdb.firebaseio.com/products.json', this.createProductform.value).subscribe((res) => { console.log(res) });
-      this.router.navigate(['/list-of-products']);
+      this.product.createProduct(this.createProductform.value).subscribe((res) => { console.log(res) });
+      setTimeout(() => {
+        this.router.navigate(['/list-of-products']);   // need to add the loader here 
+      }, 2000);
+      
     }
   }
 }

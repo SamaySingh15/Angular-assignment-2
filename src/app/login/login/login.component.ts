@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/shared/services/login.service';
+import { SettingService } from 'src/app/shared/services/setting.service';
+import { UserServicesService } from 'src/app/shared/services/user-services.service';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +12,18 @@ import { LoginService } from 'src/app/shared/services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService :LoginService, private router :Router) { }
+  constructor(private authService :LoginService, private router :Router ,private userService :UserServicesService ,private settingService:SettingService) { }
   isLoginMode=true;
+  isAdmin:boolean=false;
   error:string="";
   ngOnInit(): void {
   }
 
   
-  onSwitchMode(){
+  /*nSwitchMode(){
     this.isLoginMode=!this.isLoginMode;
 
-  }
+  } */
   onSubmit(form: NgForm){
     if(!form.valid){
       return; 
@@ -29,11 +32,11 @@ export class LoginComponent implements OnInit {
     const password= form.value.password;
     if(this.isLoginMode){
       this.authService.login(email,password).subscribe((res)=>{
-        console.log(res);
-        this.router.navigate(['/list-of-products']);
+        this.userService.getUserDetails(res.localId);
+        this.settingService.getSetting();
+        this.router.navigate(['/list-of-products']);          
       },
-      errorMessage=>{
-        console.log(errorMessage);
+      errorMessage=>{ 
         this.error=errorMessage;
       }
       );

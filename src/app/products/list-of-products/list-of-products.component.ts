@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map } from 'rxjs';
 import { AdminSettings, Product } from 'src/app/datatype';
 import { FetchProduct } from 'src/app/shared/services/fetchProduct.service';
 import { SettingService } from 'src/app/shared/services/setting.service';
@@ -48,7 +47,7 @@ export class ListOfProductsComponent implements OnInit {
        });
     }, 500);
   }
-  
+
   onSelect(){
     for(let p of this.allProductsList){
      if(p.select){

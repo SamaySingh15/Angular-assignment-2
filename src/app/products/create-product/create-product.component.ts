@@ -47,13 +47,13 @@ export class CreateProductComponent implements OnInit {
   initializeForm(): void {
 
     this.createProductform = new FormGroup({
-      name: new FormControl(null, Validators.required),
-      expiry: new FormControl(null, Validators.required),
-      stock: new FormControl(null, Validators.required),
-      heading: new FormControl(),
-      subheading: new FormControl(),
+      name: new FormControl(null, [Validators.required ,Validators.maxLength(30)]),
+      expiry: new FormControl(null, [Validators.required]),
+      stock: new FormControl(null, [Validators.required, Validators.min(0) ]),
+      heading: new FormControl(null,Validators.maxLength(150)),
+      subheading: new FormControl(null,Validators.maxLength(160)),
       tags: new FormControl(),
-      description: new FormControl()
+      description: new FormControl(null,Validators.maxLength(250))
     })
   }
 

@@ -11,6 +11,7 @@ import { UserServicesService } from 'src/app/shared/services/user-services.servi
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  enableLoader:boolean=false;
 
   constructor(private authService :LoginService, private router :Router ,private userService :UserServicesService ,private settingService:SettingService) { }
   isLoginMode=true;
@@ -31,13 +32,16 @@ export class LoginComponent implements OnInit {
     const email =form.value.username;
     const password= form.value.password;
     if(this.isLoginMode){
+      this.enableLoader=true;
       this.authService.login(email,password).subscribe((res)=>{
         this.userService.getUserDetails(res.localId);
         this.settingService.getSetting();
-        this.router.navigate(['/list-of-products']);          
+        this.router.navigate(['/list-of-products']);   
+        this.enableLoader=false;       
       },
       errorMessage=>{ 
         this.error=errorMessage;
+        this.enableLoader=false;  
       }
       );
     }

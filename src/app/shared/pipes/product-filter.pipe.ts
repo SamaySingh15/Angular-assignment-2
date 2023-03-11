@@ -10,9 +10,9 @@ export class ProductFilterPipe implements PipeTransform {
       return value
     }
     return value.filter(function(search){
-      return search.name.toLowerCase().indexOf(searchTerm.toLowerCase())>-1 || search.heading.toLowerCase().indexOf(searchTerm.toLowerCase())>-1 
-      || search.subheading.toLowerCase().indexOf(searchTerm.toLowerCase())>-1 ||
-      search.tags.toLowerCase().indexOf(searchTerm.toLowerCase())>-1
+      return search.name.toLowerCase().indexOf(searchTerm.toLowerCase())>-1 || search.heading?.toLowerCase().indexOf(searchTerm.toLowerCase())>-1 
+      || search.subheading?.toLowerCase().indexOf(searchTerm.toLowerCase())>-1 ||
+      search.tags?.toLowerCase().indexOf(searchTerm.toLowerCase())>-1
     })
   }
 

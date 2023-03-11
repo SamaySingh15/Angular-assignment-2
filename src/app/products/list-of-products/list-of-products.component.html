@@ -1,3 +1,7 @@
+<div *ngIf="enableLoader" class="loader-div">
+    <div  class="loader"></div>
+    <h1 style="color:white; margin-top:10px ;">Loading...</h1>
+</div>
 <div class="product-list">
        <div class="searchBars">
         <span style="color:white">Search :</span>
@@ -7,7 +11,7 @@
        </div>
     
     <h1 class="table-heading">All Product List</h1>
-    <table>
+    <table *ngIf="!enableLoader && settings!=undefined">
         <thead>
             <tr>
                 <th  *ngIf="settings.settingDescription.AllowMultipleDelete">CheckList</th>
